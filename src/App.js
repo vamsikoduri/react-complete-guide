@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import styleClasses from './App.css';
 import Person from './Person/Person';
-import Radium from 'radium';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+
+
 
 class App extends Component {
 
@@ -45,37 +47,26 @@ class App extends Component {
 
     let persons = null;
 
-    const style ={
-      backgroundColor : 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover':{
-        backgroundColor: 'black',
-        color: 'yellow'
-
-      }
-    }
-
     if (this.state.showPersons) {
       persons = (
         <div>
           {this.state.persons.map((person,index) => 
-          <Person index = {index} name={person.name} age={person.age} click = {this.deletePersonHandler} changeHandler= {this.updateNameHandler} />)}
+          <ErrorBoundary key ={index} >
+             <Person   index = {index} name={person.name} age={person.age} click = {this.deletePersonHandler} changeHandler= {this.updateNameHandler} />
+          </ErrorBoundary>
+          )}
         </div>
       );
 
     }
 
     return (
-      <div className="App">
-        <button  style ={style} onClick={this.toggleShowPersons}>Show Persons</button>
+      <div className={styleClasses.App}>
+        <button  style ={styleClasses.button} onClick={this.toggleShowPersons}>Show Persons</button>
         {persons}
       </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;

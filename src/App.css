@@ -22,6 +22,22 @@
   color: #61dafb;
 }
 
+.App button{
+
+  border : 1px solid blue;
+  padding: 16px;
+  background-color: blanchedalmond;
+  color:black;
+  cursor: pointer;
+      
+}
+
+.App button:hover {
+     background-color:black;
+     color:darkcyan;
+     border : 1px solid white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
