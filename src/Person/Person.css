@@ -1,0 +1,7 @@
+.Person
+{
+    display: inline-block;
+    margin: 10px;
+    border: 2px solid #224399;
+    padding: 10px;
+}
